@@ -129,7 +129,8 @@ class FileRecordingJibriService(
      */
     private val sessionRecordingDirectory =
         fileSystem.getPath(recordingsDirectory).resolve(
-            fileRecordingParams.sessionId + "" + (System.currentTimeMillis() / 1000))
+            fileRecordingParams.sessionId + "" + (System.currentTimeMillis() / 1000)
+        )
 
     init {
         logger.info("Writing recording to $sessionRecordingDirectory, finalize script path $finalizeScriptPath")
