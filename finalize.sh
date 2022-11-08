@@ -32,11 +32,8 @@ ORG_NAME=${SESSION_NAME::-9}
 S3_PATH="s3://"$S3_BUCKET$STORAGE_DIRECTORY$ORG_NAME"/"
 FILENAME="$SESSION_NAME"_`date +"%Y-%m-%d-%H-%M-%S"`.mp4
 mv $1/$FILENAME_FULL $1/$FILENAME
-# Create mp4 from .ts files.
+
 RECORDINGS_DIR=$1
-for i in `ls $RECORDINGS_DIR/*.ts | sort -V`; do echo "file $i"; done > $RECORDINGS_DIR/tslist.txt
-FFMPEG_CMD_OUTPUT=`ffmpeg -f concat -safe 0 -i $RECORDINGS_DIR/tslist.txt -c copy -bsf:a aac_adtstoasc $RECORDINGS_DIR/$FILENAME 2>&1 1>/dev/null `
-echo "[FFMPEG_CMD_OUTPUT=$FFMPEG_CMD_OUTPUT]"
 RETRY_SLEEP_TIMEOUT=5 # 5sec
 MAX_RETRY_COUNT=3
 RETRY_COUNT=1
