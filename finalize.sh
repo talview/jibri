@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 HOST=""
 S3_BUCKET=""
-STORAGE_DIRECTORY="meet-recordings/"
+STORAGE_DIRECTORY="/meet-recordings/data/"
 MINI_ENABLED_ORGS="" # comma seperated orgs_id
 MINIO_ENDPOINT=""
 
